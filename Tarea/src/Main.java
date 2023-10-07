@@ -1,11 +1,13 @@
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
 }
 
-import java.util.ArrayList;
-import java.util.Date;
+
 
 class Pago{
     private static float monto;
@@ -52,13 +54,6 @@ class Tarjeta extends Pago{
         super(m, f);
         this.tipo = tipo;
         this.numeroTransaccion = numeroTransaccion;
-    }
-}
-
-public class Main{
-    public static void Main( String[] arg) {
-        Efectivo efe=new Efectivo(55000,(2002,10,20));
-        System.out.print(efe.calDevolucion(7000));
     }
 }
 
