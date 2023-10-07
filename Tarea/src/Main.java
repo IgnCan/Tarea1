@@ -1,13 +1,24 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
+public class Main{
+    public static void Main( String[] arg) {
+
     }
 }
 
+class OrdenCompra {
+    private Date fecha;
+    private String estado;
 
+    public nose(ArrayList<DetalleOrden> a) {
+
+    }
+
+    public calcPrecioSinIVA(ArrayList<DetalleOrden> a) {
+    }
+
+}
 
 class Pago{
     private static float monto;
@@ -86,6 +97,7 @@ class Boleta extends documentoTributario{
         super(numero, rut, fecha);
     }
 }
+
 class Factura extends documentoTributario{
 
     public Factura(String numero, String rut, Date fecha) {
@@ -115,43 +127,47 @@ class Articulo{
         return precio;
     }
 }
-class DetalleOrden{
-    private int cantidad;
 
-    Articulo a =new Articulo();
+class DetalleOrden{
+    private int cantidad; // esta es la cantidad de articulos, no precios
+    private ArrayList <Articulo> Lista;
+
+    private float cuentaTotal;
+
+    public DetalleOrden(){
+        Lista= new ArrayList<>();
+    }
+
+    public void add(Articulo a){
+        cuentaTotal=a.getPrecio();
+        Lista.add(a);
+    }
 
     public float calcPrecio(){
-        float p= (float) (cantidad*a.getPrecio()*(1.19));
+        float p= (float) (cantidad*cuentaTotal*(1.19));
         return p;
     }
+
     public float calcPrecioSinIVA(){
-        float pp=cantidad*a.getPrecio();
+        float pp=cantidad*cuentaTotal;
         return pp;
     }
     public float calcIVA(){
-        float i= (float) (a.getPrecio()*(0.19)*cantidad);
+        float i= (float) (cuentaTotal*(0.19)*cantidad);
         return i;
     }
     public float calcPeso(){
-        float c=a.getPeso()*cantidad;
+        float c=cuentaTotal*cantidad;
         return c;
-
     }
-
 }
 
-class OrdenCompra{
-    private Date fecha;
-    private String estado;
-    public nose(ArrayList<DetalleOrden> a){
+class Direccion{
+    private String nombre;
+    private String rut;
 
 
-    }
-    public calcPrecioSinIVA(ArrayList<DetalleOrden> a){
-
-
-    }
-
-
-
+}
+class cliente{
+    private String Direccion;
 }
